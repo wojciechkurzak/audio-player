@@ -53,11 +53,14 @@ const AudioPlayer = () => {
 	useEffect(() => {
 		const time = Math.floor(audioPlayerRef.current.duration)
 		progressBarRef.current.max = time
+		audioPlayerRef.current.volume = 0.1
+		audioPlayerRef.current.onended = () => {
+			setPlaying(false)
+		}
 		setDuration(time)
 	}, [
 		audioPlayerRef?.current?.loadedmetadata,
 		audioPlayerRef?.current?.readyState,
-		audio,
 	])
 
 	useEffect(() => {
@@ -83,7 +86,6 @@ const AudioPlayer = () => {
 						type="range"
 						defaultValue="0"
 						className="progressBar"
-						onEnd={() => setPlaying(false)}
 					/>
 					<div className="time">{currentTime}</div>
 				</div>
