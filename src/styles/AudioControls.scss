@@ -4,4 +4,10 @@
 	align-items: center;
 	height: 60px;
 	background-color: #252525;
+
+	.buttons {
+		display: flex;
+		justify-content: space-between;
+		width: 150px;
+	}
 }
