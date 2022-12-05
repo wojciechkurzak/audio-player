@@ -1,9 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { useParams, useOutletContext } from 'react-router-dom'
+import audioData from '../data/audioData.json'
 import '../styles/AudioPlayer.scss'
 
-const AudioPlayer = ({ audio, playing, setPlaying }) => {
+const AudioPlayer = () => {
+	const [audio, setAudio] = useState('')
 	const [duration, setDuration] = useState(0)
 	const [currentTime, setCurrentTime] = useState('0:00')
+
+	let { id } = useParams()
+	const [playing, setPlaying] = useOutletContext()
+
+	const title = audioData[id - 1].title
+	const path = audioData[id - 1].file
 
 	const audioPlayerRef = useRef()
 	const progressBarRef = useRef()
@@ -15,10 +24,6 @@ const AudioPlayer = ({ audio, playing, setPlaying }) => {
 			`${(progressBarRef.current.value / duration) * 100}`
 		)
 		setCurrentTime(formatTime(progressBarRef.current.value))
-		if (audioPlayerRef.current.currentTime >= duration) {
-			audioPlayerRef.current.currentTime = 0
-			setPlaying(false)
-		}
 	}
 
 	const changeRange = () => {
@@ -40,12 +45,19 @@ const AudioPlayer = ({ audio, playing, setPlaying }) => {
 	}
 
 	useEffect(() => {
+		const file = require(`../audio/${path}`)
+		setAudio(file)
+		setPlaying(false)
+	}, [path])
+
+	useEffect(() => {
 		const time = Math.floor(audioPlayerRef.current.duration)
 		progressBarRef.current.max = time
 		setDuration(time)
 	}, [
 		audioPlayerRef?.current?.loadedmetadata,
 		audioPlayerRef?.current?.readyState,
+		audio,
 	])
 
 	useEffect(() => {
@@ -63,16 +75,18 @@ const AudioPlayer = ({ audio, playing, setPlaying }) => {
 			<audio ref={audioPlayerRef} src={audio}></audio>
 			<div className="image"></div>
 			<div className="info">
-				<div className="title">Song name</div>
-				<input
-					ref={progressBarRef}
-					onChange={changeRange}
-					type="range"
-					defaultValue="0"
-					onEnded={() => setPlaying(false)}
-					className="progressBar"
-				/>
-				<div className="time">{currentTime}</div>
+				<div className="title">{title}</div>
+				<div className="audio-time">
+					<input
+						ref={progressBarRef}
+						onChange={changeRange}
+						type="range"
+						defaultValue="0"
+						className="progressBar"
+						onEnd={() => setPlaying(false)}
+					/>
+					<div className="time">{currentTime}</div>
+				</div>
 			</div>
 		</section>
 	)

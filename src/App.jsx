@@ -1,22 +1,18 @@
 import { useState } from 'react'
-import AudioPlayer from './components/AudioPlayer'
 import Header from './components/Header'
-import song from './audio/Vosai - Demnuhbad.mp3'
-import './styles/App.scss'
 import AudioControls from './components/AudioControls'
+import AudioList from './components/AudioList'
+import { Outlet } from 'react-router-dom'
+import './styles/App.scss'
 
 const App = () => {
-	const [audio, setAudio] = useState(song)
 	const [playing, setPlaying] = useState(false)
 	return (
 		<div className="main-container">
 			<Header />
 			<div className="content-container">
-				<AudioPlayer
-					audio={audio}
-					playing={playing}
-					setPlaying={setPlaying}
-				/>
+				<AudioList />
+				<Outlet context={[playing, setPlaying]} />
 			</div>
 			<AudioControls playing={playing} setPlaying={setPlaying} />
 		</div>
