@@ -1,0 +1,70 @@
+.audio-player-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	width: 100%;
+	background-color: #1e1e1e;
+
+	.image {
+		width: 400px;
+		height: 400px;
+		background-color: #fff;
+	}
+
+	.info {
+		margin-left: 40px;
+
+		.title {
+			font-size: 64px;
+		}
+
+		.progressBar {
+			height: 20px;
+			-webkit-appearance: none;
+			margin-top: 80px;
+			width: 400px;
+			background-color: transparent;
+		}
+
+		.progressBar::-webkit-slider-runnable-track {
+			-webkit-appearance: none;
+			height: 2px;
+			cursor: pointer;
+			border-radius: 1px;
+			background-color: #9090f1;
+		}
+
+		.progressBar::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			height: 20px;
+			width: 20px;
+			border-radius: 20px;
+			background: #fff;
+			cursor: pointer;
+			margin-top: -9px;
+		}
+
+		.progressBar::-moz-range-track {
+			-webkit-appearance: none;
+			height: 2px;
+			cursor: pointer;
+			border-radius: 1px;
+			background-color: #9090f1;
+		}
+
+		.progressBar::-moz-range-thumb {
+			-webkit-appearance: none;
+			height: 20px;
+			width: 20px;
+			border-radius: 20px;
+			background: #fff;
+			cursor: pointer;
+			margin-top: -9px;
+		}
+
+		.time {
+			text-align: right;
+		}
+	}
+}
