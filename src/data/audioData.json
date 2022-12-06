@@ -12,5 +12,26 @@
 		"time": "2:38",
 		"image": "METR & Adrian Benson - Broken Love (feat. Ima Sobé).jpg",
 		"file": "METR & Adrian Benson - Broken Love (feat. Ima Sobé).mp3"
+	},
+	{
+		"id": 3,
+		"title": "Wiguez, Vizzen, Maestro Chives - Running Wild",
+		"time": "3:05",
+		"image": "Wiguez, Vizzen, Maestro Chives - Running Wild.jpg",
+		"file": "Wiguez, Vizzen, Maestro Chives - Running Wild.mp3"
+	},
+	{
+		"id": 4,
+		"title": "Culture Code - Not Giving In",
+		"time": "3:07",
+		"image": "Culture Code - Not Giving In.jpg",
+		"file": "Culture Code - Not Giving In.mp3"
+	},
+	{
+		"id": 5,
+		"title": "Vosai - Demnuhbad (feat. VinDon)",
+		"time": "3:06",
+		"image": "Vosai - Demnuhbad (feat. VinDon).jpg",
+		"file": "Vosai - Demnuhbad (feat. VinDon).mp3"
 	}
 ]
