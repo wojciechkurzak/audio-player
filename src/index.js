@@ -4,16 +4,18 @@ import App from './App'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './styles/index.scss'
 import AudioPlayer from './components/AudioPlayer'
-import DefaultPage from './components/DefaultPage'
+import HomePage from './components/HomePage'
+import ErrorPage from './components/ErrorPage'
 
 const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <App />,
+		errorElement: <ErrorPage />,
 		children: [
 			{
 				path: '/',
-				element: <DefaultPage />,
+				element: <HomePage />,
 			},
 			{
 				path: '/:id',

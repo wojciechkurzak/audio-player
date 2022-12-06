@@ -1,0 +1,22 @@
+.error-page-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	background-color: #1e1e1e;
+
+	.text {
+		color: #fff;
+		font-family: 'Roboto', sans-serif;
+	}
+
+	.upper {
+		font-size: 170px;
+	}
+
+	.lower {
+		font-size: 40px;
+	}
+}
