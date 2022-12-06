@@ -7,14 +7,20 @@ import './styles/App.scss'
 
 const App = () => {
 	const [playing, setPlaying] = useState(false)
+	const [volume, setVolume] = useState(50)
 	return (
 		<div className="main-container">
 			<Header />
 			<div className="content-container">
 				<AudioList />
-				<Outlet context={[playing, setPlaying]} />
+				<Outlet context={{ volume, playing, setPlaying }} />
 			</div>
-			<AudioControls playing={playing} setPlaying={setPlaying} />
+			<AudioControls
+				playing={playing}
+				setPlaying={setPlaying}
+				volume={volume}
+				setVolume={setVolume}
+			/>
 		</div>
 	)
 }

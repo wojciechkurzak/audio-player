@@ -10,7 +10,7 @@ import audioData from '../data/audioData.json'
 import '../styles/AudioControls.scss'
 import { useState } from 'react'
 
-const AudioControls = ({ playing, setPlaying }) => {
+const AudioControls = ({ volume, setVolume, playing, setPlaying }) => {
 	const [volumeVisible, setVolumeVisible] = useState(false)
 
 	const navigate = useNavigate()
@@ -60,9 +60,12 @@ const AudioControls = ({ playing, setPlaying }) => {
 					}
 				>
 					<input
+						value={volume}
+						onChange={(e) => setVolume(e.target.value)}
 						type="range"
-						defaultValue="0"
 						className="volume-progress-bar"
+						min="0"
+						max="100"
 					/>
 				</div>
 			</div>

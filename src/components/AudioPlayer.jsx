@@ -9,7 +9,7 @@ const AudioPlayer = () => {
 	const [currentTime, setCurrentTime] = useState('0:00')
 
 	let { id } = useParams()
-	const [playing, setPlaying] = useOutletContext()
+	const { volume, playing, setPlaying } = useOutletContext()
 
 	const title = audioData[id - 1].title
 	const path = audioData[id - 1].file
@@ -53,7 +53,6 @@ const AudioPlayer = () => {
 	useEffect(() => {
 		const time = Math.floor(audioPlayerRef.current.duration)
 		progressBarRef.current.max = time
-		audioPlayerRef.current.volume = 0.1
 		audioPlayerRef.current.onended = () => {
 			setPlaying(false)
 		}
@@ -72,6 +71,10 @@ const AudioPlayer = () => {
 			cancelAnimationFrame(whilePlaying)
 		}
 	}, [playing])
+
+	useEffect(() => {
+		audioPlayerRef.current.volume = volume / 100
+	}, [volume])
 
 	return (
 		<section className="audio-player-container">
