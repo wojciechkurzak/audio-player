@@ -3,9 +3,15 @@ import audioData from '../data/audioData.json'
 import AudioListElement from './AudioListElement'
 import '../styles/AudioList.scss'
 
-const AudioList = () => {
+const AudioList = ({ listVisible }) => {
 	return (
-		<section className="audio-list-container">
+		<section
+			className={
+				listVisible
+					? 'audio-list-container visible'
+					: 'audio-list-container'
+			}
+		>
 			<ul>
 				{audioData.map(({ id, title, time, image }) => (
 					<AudioListElement

@@ -6,13 +6,20 @@
 	height: 60px;
 	background-color: #252525;
 
-	.buttons {
+	.toggle-list-container {
+		display: none;
+	}
+
+	.control-buttons {
 		display: flex;
 		justify-content: space-between;
 		width: 150px;
 	}
 
 	.volume-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		position: absolute;
 		top: 50%;
 		right: 30px;
@@ -84,6 +91,90 @@
 
 		.volume-hidden {
 			display: none;
+		}
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.audio-controls-container {
+		height: 40px;
+
+		.volume-container {
+			.volume-button {
+				height: 26px;
+				width: 26px;
+				font-size: 26px;
+			}
+		}
+	}
+}
+
+@media screen and (orientation: portrait) and (max-width: 540px) {
+	.audio-controls-container {
+		height: 40px;
+		z-index: 0;
+
+		.toggle-list-container {
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 30px;
+			transform: translateY(-50%);
+
+			.toggle-list-button {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 26px;
+				width: 26px;
+				font-size: 18px;
+				color: #fff;
+				border: none;
+				background-color: transparent;
+			}
+		}
+
+		.volume-container {
+			.volume-button {
+				height: 26px;
+				width: 26px;
+				font-size: 26px;
+			}
+		}
+	}
+}
+
+@media screen and (orientation: landscape) and (max-height: 540px) {
+	.audio-controls-container {
+		height: 40px;
+		z-index: 0;
+
+		.toggle-list-container {
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 30px;
+			transform: translateY(-50%);
+
+			.toggle-list-button {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 26px;
+				width: 26px;
+				font-size: 18px;
+				color: #fff;
+				border: none;
+				background-color: transparent;
+			}
+		}
+
+		.volume-container {
+			.volume-button {
+				height: 26px;
+				width: 26px;
+				font-size: 26px;
+			}
 		}
 	}
 }

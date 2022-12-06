@@ -3,7 +3,7 @@
 	align-items: center;
 	width: 300px;
 	padding: 6px;
-	transition: 0.3s;
+	transition: background-color 0.3s;
 	cursor: pointer;
 
 	&:hover {
@@ -11,7 +11,7 @@
 	}
 
 	.image {
-		min-width: 50px;
+		width: 50px;
 		height: 50px;
 		background-color: #fff;
 	}
@@ -36,4 +36,31 @@
 
 a {
 	text-decoration: none;
+}
+
+@media screen and (max-width: 1024px) {
+	.list-element-container {
+		width: 240px;
+
+		.text {
+			.title {
+				font-size: 12px;
+				overflow: hidden;
+			}
+		}
+	}
+}
+
+@media screen and (orientation: landscape) and (max-height: 540px) {
+	.list-element-container {
+		width: 100%;
+		padding: 6px 14px;
+	}
+}
+
+@media screen and (orientation: portrait) and (max-width: 540px) {
+	.list-element-container {
+		width: 100%;
+		padding: 6px 14px;
+	}
 }

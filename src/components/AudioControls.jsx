@@ -4,13 +4,21 @@ import { BsPlayFill } from 'react-icons/bs'
 import { BsPauseFill } from 'react-icons/bs'
 import { BsFillSkipForwardFill } from 'react-icons/bs'
 import { BsFillSkipBackwardFill } from 'react-icons/bs'
+import { BsMusicNoteList } from 'react-icons/bs'
 import { GiSpeaker } from 'react-icons/gi'
 import { useNavigate, useParams } from 'react-router-dom'
 import audioData from '../data/audioData.json'
 import '../styles/AudioControls.scss'
 import { useState } from 'react'
 
-const AudioControls = ({ volume, setVolume, playing, setPlaying }) => {
+const AudioControls = ({
+	volume,
+	setVolume,
+	playing,
+	setPlaying,
+	listVisible,
+	setListVisible,
+}) => {
 	const [volumeVisible, setVolumeVisible] = useState(false)
 
 	const navigate = useNavigate()
@@ -32,9 +40,21 @@ const AudioControls = ({ volume, setVolume, playing, setPlaying }) => {
 		setVolumeVisible(!volumeVisible)
 	}
 
+	const listVisibleToggle = () => {
+		setListVisible(!listVisible)
+	}
+
 	return (
 		<section className="audio-controls-container">
-			<div className="buttons">
+			<div className="toggle-list-container">
+				<button
+					className="toggle-list-button"
+					onClick={listVisibleToggle}
+				>
+					<BsMusicNoteList />
+				</button>
+			</div>
+			<div className="control-buttons">
 				<AudioButton
 					icon={<BsFillSkipBackwardFill />}
 					onClick={previousMusic}

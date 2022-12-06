@@ -19,22 +19,23 @@
 		margin-left: 50px;
 		padding: 10px 0;
 		height: 400px;
+		width: 600px;
 
 		.title {
-			width: 600px;
+			width: 100%;
 			font-family: 'Roboto', sans-serif;
 			font-size: 60px;
 			word-break: word-break;
 		}
 
 		.audio-time {
-			width: 400px;
+			width: 100%;
 
 			.progressBar {
 				height: 20px;
 				-webkit-appearance: none;
 				margin-top: 80px;
-				width: 400px;
+				width: 100%;
 				background-color: transparent;
 			}
 
@@ -77,6 +78,87 @@
 			.time {
 				font-family: 'Roboto', sans-serif;
 				text-align: right;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1440px) {
+	.audio-player-container {
+		.image {
+			width: 250px;
+			height: 250px;
+		}
+
+		.info {
+			height: 250px;
+			width: 360px;
+			padding: 6px 0;
+
+			.title {
+				font-size: 30px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.audio-player-container {
+		flex-direction: column;
+
+		.image {
+			width: 250px;
+			height: 250px;
+		}
+
+		.info {
+			height: 150px;
+			width: 250px;
+			margin-left: 0;
+			margin-top: 20px;
+
+			.title {
+				font-size: 20px;
+				text-align: center;
+			}
+
+			.audio-time {
+				width: 100%;
+
+				.progressBar {
+					margin-top: 40px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (orientation: landscape) and (max-height: 540px) {
+	.audio-player-container {
+		flex-direction: row;
+
+		.image {
+			width: 180px;
+			height: 180px;
+		}
+
+		.info {
+			height: 150px;
+			width: 250px;
+			margin-left: 50px;
+			margin-top: 0;
+
+			.title {
+				font-size: 20px;
+				text-align: center;
+			}
+
+			.audio-time {
+				width: 100%;
+
+				.progressBar {
+					margin-top: 60px;
+				}
 			}
 		}
 	}

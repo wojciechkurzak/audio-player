@@ -1,3 +1,51 @@
 .audio-list-container {
 	background-color: #353535;
 }
+
+@media screen and (max-width: 480px) {
+	.audio-list-container {
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		transition: transform 0.3s;
+		z-index: 1;
+	}
+
+	.visible {
+		transform: translateX(100%);
+	}
+}
+
+@media screen and (orientation: landscape) and (max-height: 540px) {
+	.audio-list-container {
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		transition: transform 0.3s;
+		z-index: 1;
+	}
+
+	.visible {
+		transform: translateX(100%);
+	}
+}
+
+@media screen and (orientation: portrait) and (max-width: 540px) {
+	.audio-list-container {
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		transition: transform 0.3s;
+		z-index: 1;
+	}
+
+	.visible {
+		transform: translateX(100%);
+	}
+}

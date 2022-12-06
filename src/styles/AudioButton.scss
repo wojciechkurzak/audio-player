@@ -12,3 +12,11 @@
 	box-shadow: 0 0 5px 1px #5555ff;
 	cursor: pointer;
 }
+
+@media screen and (max-width: 1024px) {
+	.control-button {
+		height: 30px;
+		width: 30px;
+		font-size: 18px;
+	}
+}
