@@ -4,6 +4,7 @@ import { BsPlayFill } from 'react-icons/bs'
 import { BsPauseFill } from 'react-icons/bs'
 import { BsFillSkipForwardFill } from 'react-icons/bs'
 import { BsFillSkipBackwardFill } from 'react-icons/bs'
+import { GiSpeaker } from 'react-icons/gi'
 import { useNavigate, useParams } from 'react-router-dom'
 import audioData from '../data/audioData.json'
 import '../styles/AudioControls.scss'
@@ -39,6 +40,11 @@ const AudioControls = ({ playing, setPlaying }) => {
 					icon={<BsFillSkipForwardFill />}
 					onClick={nextMusic}
 				/>
+			</div>
+			<div className="volume-container">
+				<button className="volume-button">
+					<GiSpeaker />
+				</button>
 			</div>
 		</section>
 	)
