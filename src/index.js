@@ -18,7 +18,7 @@ const router = createBrowserRouter([
 				element: <HomePage />,
 			},
 			{
-				path: '/:id',
+				path: '/audio/:id',
 				element: <AudioPlayer />,
 			},
 		],

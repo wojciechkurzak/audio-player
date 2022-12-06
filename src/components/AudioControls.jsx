@@ -29,11 +29,11 @@ const AudioControls = ({
 	}
 
 	const nextMusic = () => {
-		if (id < audioData.length) navigate(`/${parseInt(id) + 1}`)
+		if (id < audioData.length) navigate(`/audio/${parseInt(id) + 1}`)
 	}
 
 	const previousMusic = () => {
-		if (id > 1) navigate(`/${parseInt(id) - 1}`)
+		if (id > 1) navigate(`/audio/${parseInt(id) - 1}`)
 	}
 
 	const volumeVisibleToggle = () => {

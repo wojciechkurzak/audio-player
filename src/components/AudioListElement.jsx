@@ -14,7 +14,7 @@ const AudioListElement = ({ uid, title, time, image, setListVisible }) => {
 
 	return (
 		<li>
-			<Link to={`/${uid}`}>
+			<Link to={`/audio/${uid}`}>
 				<div
 					className={
 						uid === parseInt(id)
