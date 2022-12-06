@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import '../styles/AudioListElement.scss'
 
-const AudioListElement = ({ id, title, time, image, setListVisible }) => {
+const AudioListElement = ({ uid, title, time, image, setListVisible }) => {
 	const [audioImage, setAudioImage] = useState(null)
+
+	let { id } = useParams()
 
 	useEffect(() => {
 		const file = require(`../assets/${image}`)
@@ -12,9 +14,13 @@ const AudioListElement = ({ id, title, time, image, setListVisible }) => {
 
 	return (
 		<li>
-			<Link to={`/${id}`}>
+			<Link to={`/${uid}`}>
 				<div
-					className="list-element-container"
+					className={
+						uid === parseInt(id)
+							? 'list-element-container active'
+							: 'list-element-container'
+					}
 					onClick={() => setListVisible(false)}
 				>
 					<img className="image" src={audioImage} alt="audio" />

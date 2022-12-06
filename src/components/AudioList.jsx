@@ -16,7 +16,7 @@ const AudioList = ({ listVisible, setListVisible }) => {
 				{audioData.map(({ id, title, time, image }) => (
 					<AudioListElement
 						key={id}
-						id={id}
+						uid={id}
 						title={title}
 						time={time}
 						image={image}
