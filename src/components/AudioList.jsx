@@ -3,7 +3,7 @@ import audioData from '../data/audioData.json'
 import AudioListElement from './AudioListElement'
 import '../styles/AudioList.scss'
 
-const AudioList = ({ listVisible }) => {
+const AudioList = ({ listVisible, setListVisible }) => {
 	return (
 		<section
 			className={
@@ -20,6 +20,7 @@ const AudioList = ({ listVisible }) => {
 						title={title}
 						time={time}
 						image={image}
+						setListVisible={setListVisible}
 					/>
 				))}
 			</ul>

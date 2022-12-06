@@ -14,7 +14,10 @@ const App = () => {
 		<div className="main-container">
 			<Header />
 			<div className="content-container">
-				<AudioList listVisible={listVisible} />
+				<AudioList
+					listVisible={listVisible}
+					setListVisible={setListVisible}
+				/>
 				<Outlet context={{ volume, playing, setPlaying }} />
 			</div>
 			<AudioControls
