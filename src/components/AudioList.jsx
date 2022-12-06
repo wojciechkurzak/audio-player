@@ -7,14 +7,13 @@ const AudioList = () => {
 	return (
 		<section className="audio-list-container">
 			<ul>
-				{audioData.map(({ id, title, time, image, path }) => (
+				{audioData.map(({ id, title, time, image }) => (
 					<AudioListElement
 						key={id}
 						id={id}
 						title={title}
 						time={time}
 						image={image}
-						path={path}
 					/>
 				))}
 			</ul>

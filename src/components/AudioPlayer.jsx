@@ -4,15 +4,17 @@ import audioData from '../data/audioData.json'
 import '../styles/AudioPlayer.scss'
 
 const AudioPlayer = () => {
-	const [audio, setAudio] = useState('')
+	const [audio, setAudio] = useState(null)
 	const [duration, setDuration] = useState(0)
 	const [currentTime, setCurrentTime] = useState('0:00')
+	const [audioImage, setAudioImage] = useState(null)
 
 	let { id } = useParams()
 	const { volume, playing, setPlaying } = useOutletContext()
 
-	const title = audioData[id - 1].title
-	const path = audioData[id - 1].file
+	const currentAudioData = audioData.find(
+		(element) => element.id === parseInt(id)
+	)
 
 	const audioPlayerRef = useRef()
 	const progressBarRef = useRef()
@@ -45,10 +47,15 @@ const AudioPlayer = () => {
 	}
 
 	useEffect(() => {
-		const file = require(`../audio/${path}`)
+		const file = require(`../audio/${currentAudioData.file}`)
 		setAudio(file)
 		setPlaying(false)
-	}, [path])
+	}, [currentAudioData.file])
+
+	useEffect(() => {
+		const file = require(`../assets/${currentAudioData.image}`)
+		setAudioImage(file)
+	}, [currentAudioData.image])
 
 	useEffect(() => {
 		const time = Math.floor(audioPlayerRef.current.duration)
@@ -79,9 +86,9 @@ const AudioPlayer = () => {
 	return (
 		<section className="audio-player-container">
 			<audio ref={audioPlayerRef} src={audio}></audio>
-			<div className="image"></div>
+			<img className="image" src={audioImage} alt="audio" />
 			<div className="info">
-				<div className="title">{title}</div>
+				<div className="title">{currentAudioData.title}</div>
 				<div className="audio-time">
 					<input
 						ref={progressBarRef}

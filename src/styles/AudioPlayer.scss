@@ -9,14 +9,14 @@
 	.image {
 		width: 400px;
 		height: 400px;
-		background-color: #fff;
+		box-shadow: 7px 4px 8px 1px #2f2f52;
 	}
 
 	.info {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		margin-left: 40px;
+		margin-left: 50px;
 		padding: 10px 0;
 		height: 400px;
 
