@@ -1,15 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './styles/index.scss'
 import AudioPlayer from './components/AudioPlayer'
+import DefaultPage from './components/DefaultPage'
 
 const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <App />,
 		children: [
+			{
+				path: '/',
+				element: <DefaultPage />,
+			},
 			{
 				path: '/:id',
 				element: <AudioPlayer />,
